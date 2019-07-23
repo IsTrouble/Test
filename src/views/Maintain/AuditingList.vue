@@ -36,33 +36,225 @@
 		Col(span="24" style="text-align:center;")
 			page.fonts(show-elevator='', :total='totalNumber', :page-size='options.num', :current='options.page', @on-change='pageChange', show-total='')
 </template> -->
-<template>
+<template lang="jade">
+	div.layout-content-main(style='background:#f5f3f0')
+		div.panel
+			section.panel-title
+				img(:src="icon")
+				b(v-text="title")
+			section.panel-content
+				slot(name='content')
+			div(slot='content')
+				section.list-search
+					el-form(:inline="true",:ref="form",@keydown.enter.native.prevent="search()")
+						el-form-item
+							el-select(v-model="show.type",:placeholder="$t('maintenance type')",@change="search()")
+								el-option(key="1",:label="$t('all')",value="all")
+								el-option(key="2",:label="$t('fault')",value="1")
+								el-option(key="3",:label="$t('maintain')",value="2")
+								el-option(key="4",:label="$t('check')",value="3")
+						el-form-item
+							el-select(v-model="show.device_type",:placeholder="$t('device type')",@change="search()")
+								el-option(key="1",:label="$t('all')",value="all")
+								el-option(key="2",:label="$t('door')",value="door")
+								el-option(key="3",:label="$t('ctrl')",value="ctrl")
+						el-form-item
+							el-select(v-model="show.list_type",:placeholder="$t('type')",@change="getList()")
+								el-option(key="2",:label="$t('order auditing')",value="order")
+								el-option(key="3",:label="$t('dispatch auditing')",value="dispatch")
+						el-form-item
+							el-input(v-model="options.search_info",:data="menu",:placeholder="$t('device name')+'、'+$t('install address')",max=15)
+						el-form-item
+							el-button(type="primary",icon="el-icon-search",@click="search()")|{{$t('search')}}
+							el-button(icon="el-icon-refresh-right",@click="code()")|{{$t('fault code')}}
+			section.list-content.clearfix
+				el-dialog(:title="$t('tip')",:visible.sync="ctrl",width="30%")
+					img#c(scr="",width="100%")
+					span.dialog-footer(slot="footer")
+						el-button(type="primary",@click="ctrl=false")|{{$t('OK')}}
+				el-dialog(:title="$t('tip')",:visible.sync="door",width="30%")
+					img#d(src="",width="100%")
+					span.dialog-footer(slot="footer")
+						el-button(type="primary",@click="door=false")|{{$t('OK')}}
+				el-table(:data="list",border,stripe,:header-cell-style="{'background-color': '#e4e4e4','color': '#4d4d4d'}",empty-text="暂无数据",style="width:100%")
+					el-table-column(prop="device_name",:label="$t('device name')")
+					el-table-column(prop="IMEI",:label="$t('IMEI')",:sortable="true")
+					el-table-column(prop="device_type",:label="$t('device type')")
+						template(slot-scope="scope")
+							div|{{$t(scope.row.device_type)}}
+					el-table-column(prop="type",:label="$t('maintenance type')")
+						template(slot-scope="scope")
+							el-tag(size="medium",:type="scope.row.mystatus.class")|{{scope.row.mystatus.text}}
+					el-table-column(prop="producer",:label="$t('creator')",:sortable="true")
+					el-table-column(prop="type",:label="$t('fault code')")
+						template(slot-scope="scope")
+							el-button(@click="codeclick(scope)")|{{scope.row.Ecode}}
+					el-table-column(width="300",prop="install_addr",:label="$t('install address')")
+					el-table-column(prop="remarks",:label="$t('remarks')")
+					el-table-column(prop="createTime",:label="$t('create time')")
+						template(slot-scope="scope")
+							div|{{scope.row.mycreateTime}}
+					el-table-column(fixed="right",:label="$t('handle')",width="100")
+						template(slot-scope="scope")
+							el-button(type="info",icon="el-icon-edit",circle size="small",@click='handleclick(scope)')
+				el-pagination(class="pageclass",background,layout="prev, pager, next",:total="totalNumber",@current-change='pageChange')		
+</template>
+<!-- <template>
 	<div class="layout-content-main" style="background:#f5f3f0">
 		<div class="panel border">
 		  <section class="panel-title">
-		    <i :class="['iconfont', icon]"></i>
+		    <img :src="icon" alt="">
 		    <b v-text="title"></b>
 		  </section>
 		  <section class="panel-content">
-		    <slot name="content"></slot>
+		    <slot name="content">
+				<div slot="content">
+					<section class="list-search">
+						<el-form :inline="true" :model="searchForm" ref="form" @keydown.enter.native.prevent="search()">
+							<el-form-item label="维保类型：">
+								<el-select v-model="show.type" :placeholder='$t("maintenance type")' @change='search()'>
+									<el-option key='1' :label="$t('all')" value='all'></el-option>
+									<el-option key='2' :label="$t('fault')" value='1'></el-option>
+									<el-option key='3' :label="$t('maintain')" value='2'></el-option>
+									<el-option key='4' :label="$t('check')" value='3'></el-option>
+								</el-select>
+							</el-form-item>
+							<el-form-item label="设备类型：">
+								<el-select v-model="show.device_type" :placeholder='$t("device type")' @change='search()'>
+									<el-option key='1' :label="$t('all')" value='all'></el-option>
+									<el-option key='2' :label="$t('door')" value='door'></el-option>
+									<el-option key='3' :label="$t('ctrl')" value='ctrl'></el-option>
+								</el-select>
+							</el-form-item>
+							<el-form-item label="审核方式：">
+								<el-select v-model="show.list_type" :placeholder='$t("type")' @change='getList()'>
+									<el-option key='2' :label="$t('order auditing')" value='order'></el-option>
+									<el-option key='3' :label="$t('dispatch auditing')" value='dispatch'></el-option>
+								</el-select>
+							</el-form-item>
+							<el-form-item>
+								<el-input v-model="options.search_info" :data="menu" :placeholder='$t("device name")+"、"+$t("install address")' max=15></el-input>
+							</el-form-item>
+							<el-form-item>
+								<el-button type="primary" icon="el-icon-search" @click='search()'>{{$t('search')}}</el-button>
+								<el-button icon="el-icon-refresh-right" @click='code()'>{{$t('fault code')}}</el-button>
+							</el-form-item>
+						</el-form>
+					</section>
+				</div>
+			</slot>
+		  </section>
+		  <section class="list-content clearfix">
+		<el-dialog :title='$t("tip")' :visible.sync='ctrl' width='30%'>
+			<img id="c" src="" width='100%'>
+			<span class="dialog-footer" slot='footer'>
+				<el-button type='primary' @click='ctrl = false'>{{$t('OK')}}</el-button>
+			</span>
+		</el-dialog>
+		<el-dialog :title='$t("tip")' :visible.sync='door' width='30%'>
+			<img id="d" src="" width='100%'>
+			<span class="dialog-footer" slot='footer'>
+				<el-button type='primary' @click='door = false'>{{$t('OK')}}</el-button>
+			</span>
+		</el-dialog>
+		  <el-table
+		  :data="list"
+		  border
+		  stripe
+		  :header-cell-style="{
+			'background-color': '#e4e4e4',
+			'color': '#4d4d4d',
+			'border-bottom': '1px #4d4d4d solid'
+		  }"
+		  empty-text="暂无数据"
+		  style="width: 100%">
+		  <el-table-column
+		    prop="device_name"
+		    :label="$t('device name')">
+		  </el-table-column>
+		  <el-table-column
+		    prop="IMEI"
+		    :label="$t('IMEI')"
+			:sortable="true">
+		  </el-table-column>
+		  <el-table-column
+		    prop="device_type"
+		    :label="$t('device type')">
+			<template slot-scope="scope">
+				  <div>{{$t(scope.row.device_type)}}</div>
+			</template>
+		  </el-table-column>
+		  <el-table-column
+		    prop="type"
+		    :label="$t('maintenance type')">
+			<template slot-scope="scope">
+				  <el-tag size="medium" :type="scope.row.mystatus.class">{{scope.row.mystatus.text}}</el-tag>
+			</template>
+		  </el-table-column>
+		  <el-table-column
+		    prop="producer"
+		    :label="$t('creator')"
+			:sortable="true">
+		  </el-table-column>
+		   <el-table-column
+		    prop="type"
+		    :label="$t('fault code')">
+			<template slot-scope="scope">
+				  <el-button @click='codeclick(scope)'>{{scope.row.Ecode}}</el-button>
+			</template>
+		  </el-table-column>
+		  <el-table-column
+			width="300"
+		    prop="install_addr"
+		    :label="$t('install address')">
+		  </el-table-column>
+		  <el-table-column
+		    prop="remarks"
+		    :label="$t('remarks')">
+		  </el-table-column>
+		  <el-table-column
+		    prop="createTime"
+		    :label="$t('create time')">
+			<template slot-scope="scope">
+				<div>{{scope.row.mycreateTime}}</div>
+			</template>
+		  </el-table-column>
+		  <el-table-column
+		    fixed="right"
+		    label="$t('handle')"
+		    width="100">
+		    <template slot-scope="scope">
+		      <el-button type="info" icon="el-icon-edit" circle size="small" @click='handleclick(scope)'></el-button>
+		    </template>
+		  </el-table-column>
+		</el-table>
+		<el-pagination
+		  class="pageclass"
+		  background
+		  layout="prev, pager, next"
+		  :total="totalNumber"
+		  @current-change='pageChange'>
+		</el-pagination>
 		  </section>
 		</div>
 	</div>
-</template>
+</template> -->
 <script>
+	const STATUS={
+		1: { text: '故障', class: 'danger' },
+		2: { text: '保养', class: 'success' },
+		3: { text: '校检', class: 'info' },
+	}
 	export default {
 		  props: {
-		  icon: {
-		    type: String,
-		    default: 'icon-func'
-		  },
 		  title: {
 		    type: String,
-		    default: '页面'
+		    default: '审核列表'
 		  }
 		},
 		data() {
 			return {
+				icon: require("../../assets/icons/audit.png"),
 				ctrl: false,
 				door: false,
 				last: true,
@@ -110,7 +302,7 @@
 					}, {
 						title: this.$t('maintenance type'),
 						width: 140,
-						key: 'device_type',
+						key: 'type',
 						render: (h, params) => {
 							var type = ''
 							if (params.row.type == "1") type = this.$t('fault')
@@ -218,16 +410,6 @@
 						}
 					}
 				],
-				// searchForm: {
-				//   no: '',
-				//   type: ''
-				// },
-				// options: {
-				//   page: 1,
-				//   num: 10,
-				//   total: 0
-				// },
-				// searchList: []
 			}
 
 		},
@@ -277,6 +459,23 @@
 						})
 					}
 					this.list = res.data.data.list
+					this.list.forEach(item=>{
+						item.mystatus = STATUS[item.type]
+						
+					})
+					this.list.forEach(item=>{
+						if((item.type=="1")&&(item.code!=null)){
+							item.mycode=item.code.toString(16)
+							if(item.mycode.length==1){
+								item.mycode='0'+item.mycode
+							}
+							item.Ecode='E'+item.mycode
+						}
+					})
+					this.list.forEach(item=>{
+						item.mycreateTime=this.$format(parseInt(item.createTime), 'YYYY-MM-DD HH:mm:ss')
+					})
+					 this.options.total = res.data.data.totalNumber
 					this.totalNumber = res.data.data.totalNumber
 				}
 			},
@@ -315,6 +514,7 @@
 						})
 					}
 					this.list = res.data.data.list
+
 					this.totalNumber = res.data.data.totalNumber
 				}
 			},
@@ -332,6 +532,37 @@
 					this.getData()
 				}else{
 					this.getDipatch()
+				}
+			},
+			async codeclick(scope){
+				if(scope.row.device_type=="ctrl"){
+					setTimeout(() => {
+						document.getElementById('c').src = '../../../static/c' + scope.row.mycode + '.png'
+					}, 200)
+					this.ctrl = true
+				}
+				if(scope.row.device_type=="door"){
+					setTimeout(() => {
+						document.getElementById('d').src = '../../../static/d' + scope.row.mycode + '.png'
+					}, 200)
+					this.door = true
+				}
+			},
+			async handleclick(scope){
+				if(this.show.list_type=="dispatch"){
+					this.$router.push({
+						name: 'dispatchadopt',
+						params: {
+						id: scope.row.id
+						}
+					})
+				}else{
+					this.$router.push({
+						name: 'orderadopt',
+						params: {
+						id: scope.row.id
+						}
+					})
 				}
 			},
 			code() {
@@ -489,11 +720,16 @@
     margin-right: 12px;
   }
   b {
+	margin-left:12px;
     font-size: 16px;
     color: #333333;
   }
 }
 .panel-content {
   margin-left: 36px;;
+}
+.pageclass{
+	margin-top:20px; 
+	float: right
 }
 </style>

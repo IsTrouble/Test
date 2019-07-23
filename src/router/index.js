@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-const Hello = resolve => require(['@/views/Dashboard'], resolve)
 const Login = resolve => require(['@/views/Login'], resolve)
 const Register = resolve => require(['@/views/Register'], resolve)
 const Reset = resolve => require(['@/views/Reset'], resolve)
@@ -750,11 +749,6 @@ export default new Router({
 		{
 			path: '*',
 			redirect: '/'
-		},
-		{
-			path: '/hello',
-			name: 'Hello',
-			component: Hello,
 		}
 	]
 })

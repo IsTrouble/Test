@@ -1,6 +1,6 @@
 <template lang="jade">
 div.layout-content-main
-		Row(:gutter=30)
+		Row(:gutter="30")
 			Col(span=16)
 				Card
 					Row
@@ -19,7 +19,24 @@ div.layout-content-main
 										Col(span="8")
 											Button(icon="close",@click="$router.back(-1)")|{{$t('cancel')}}
 </template>
-
+<!-- <div class="layout-content-main">
+	<Row :gutter='30'>
+		<Col span='16'>
+			<Card>
+				<Row>
+					<Col span="20">
+						<Form ref="form",:model="form",:rules="rules",:label-width="100">
+							<Row :gutter="5">
+								<Col span="20",offset="2"></Col>
+							</Row>
+						</Form>
+					</Col>
+				</Row>
+			</Card>
+		</Col>
+		
+	</Row>
+</div> -->
 <script>
 	import region from '@/views/region.json'
 	export default{

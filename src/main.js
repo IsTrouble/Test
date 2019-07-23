@@ -16,8 +16,11 @@ import "printthis";
 import VueResource from 'vue-resource';
 import 'font-awesome/scss/font-awesome.scss';
 import ElementUI from 'element-ui';
-// import 'element-ui/lib/theme-chalk/index.css';
+import './assets/variables.scss'
 import echarts from 'echarts';
+import ECharts from 'vue-echarts';
+import 'echarts/lib/chart/bar';
+import 'echarts/lib/component/tooltip';
 import 'babel-polyfill';
 import Icon from 'vue2-svg-icon/Icon.vue';
 import './lib/jquery-vender.js';
@@ -39,6 +42,7 @@ import global from './global'
 Vue.use(VueI18n);
 Vue.prototype.global = global
 Vue.component('icon', Icon);
+Vue.component('v-chart', ECharts);
 Vue.use(ElementUI, { size: 'small' });
 Vue.use(VueResource);
 Vue.http.options.emulateJSON = true;

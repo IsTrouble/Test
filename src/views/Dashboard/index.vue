@@ -15,9 +15,7 @@
 			<section class="content">
 				<!-- Small boxes (Stat box) -->
 				<div class="row" style="">
-					<div class="ivu-col ivu-col-span-6" id='title1' style="padding-left:10px;padding-right:10px">
-
-						<!-- small box -->
+<!-- 					<div class="ivu-col ivu-col-span-6" id='title1' style="padding-left:10px;padding-right:10px">
 						<div class="small-box bg-red">
 							<div class="inner" style="text-align:center; padding:4px" >
 								<div :style="'font-size:'+setheight[0]/2.3+'px'" style='font-weight: bold;' id="font11">{{allevents}}</div>
@@ -26,10 +24,47 @@
 
 							<a href="#" class="small-box-footer" @click="$router.push({name:'maintain'})" :style="'font-size:'+setheight[0]/8+'px'">More info <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
+					</div> -->
+					<div class="col-md-3 col-xl-3">
+						<el-card :body-style="{ padding: '0px' }">
+							<div class="row">
+								<div class="col-md-4 col-xl-4" style="padding: 14px;"><img style="display: block;margin: 0 auto;" src="../../assets/icons/guzhang.png"></div>
+								<div class="col-md-8 col-xl-8" style="float: right;">
+									<div style=" font-size: 14px; float: right; padding-right: 14px;padding-top: 14px;">
+										{{$t("Fault Devices")}}
+									</div>
+									<div style=" font-size: 32px; float: right; padding-right: 14px; clear: both;">
+										{{allevents}}
+									</div>
+								</div>
+							</div>
+							<hr>
+							<div style="padding: 10px;">
+								<a href="#" class="small-box-footer" @click="$router.push({name:'maintain'})" :style="'font-size:'+setheight[0]/8+'px'" style="color: #999;">More info <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</el-card>
 					</div>
 					<!-- ./col -->
-					<div class="ivu-col ivu-col-span-6" id='title2' style="padding-left:10px;padding-right:10px">
-						<!-- small box -->
+					<div class="col-md-3 col-xl-3">
+						<el-card :body-style="{ padding: '0px' }">
+							<div class="row">
+								<div class="col-md-4 col-xl-4" style="padding: 14px;"><img style="display: block;margin: 0 auto;" src="../../assets/icons/update.png"></div>
+								<div class="col-md-8 col-xl-8" style="float: right;">
+									<div style=" font-size: 14px; float: right; padding-right: 14px;padding-top: 14px;">
+										{{$t("Updateable Firmware")}}
+									</div>
+									<div style=" font-size: 32px; float: right; padding-right: 14px; clear: both;">
+										{{0}}
+									</div>
+								</div>
+							</div>
+							<hr>
+							<div style="padding: 10px;">
+								<a href="#" class="small-box-footer" @click="$router.push({name:'evolution'})" :style="'font-size:'+setheight[0]/8+'px'" style="color: #999;">More info <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</el-card>
+					</div>
+<!-- 					<div class="ivu-col ivu-col-span-6" id='title2' style="padding-left:10px;padding-right:10px">
 						<div class="small-box bg-aqua">
 							<div class="inner" style="text-align:center; padding:4px">
 								<div :style="'font-size:'+setheight[0]/2.3+'px'" id="font12" style='font-weight: bold;'>{{0}}<sup style="font-size: 20px"></sup></div>
@@ -41,11 +76,28 @@
 							<a href="#" class="small-box-footer" @click="$router.push({name:'evolution'})" :style="'font-size:'+setheight[0]/8+'px'">More info <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 
-					</div>
+					</div> -->
 					<!-- ./col -->
-					<div class="ivu-col ivu-col-span-6" id='title3' style="padding-left:10px;padding-right:10px">
-
-						<!-- small box -->
+					<div class="col-md-3 col-xl-3">
+						<el-card :body-style="{ padding: '0px' }">
+							<div class="row">
+								<div class="col-md-4 col-xl-4" style="padding: 14px;"><img style="display: block;margin: 0 auto;" src="../../assets/icons/Completed.png"></div>
+								<div class="col-md-8 col-xl-8" style="float: right;">
+									<div style=" font-size: 14px; float: right; padding-right: 14px;padding-top: 14px;">
+										{{$t("Tasks Completed Today")}}
+									</div>
+									<div style=" font-size: 32px; float: right; padding-right: 14px; clear: both;">
+										{{today}}
+									</div>
+								</div>
+							</div>
+							<hr>
+							<div style="padding: 10px;">
+								<a href="#" class="small-box-footer" @click="$router.push({name:'maintainList'})" :style="'font-size:'+setheight[0]/8+'px'" style="color: #999;">More info <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</el-card>
+					</div>
+<!-- 					<div class="ivu-col ivu-col-span-6" id='title3' style="padding-left:10px;padding-right:10px">
 						<div class="small-box bg-yellow">
 							<div class="inner" style="text-align:center; padding:4px">
 								<div :style="'font-size:'+setheight[0]/2.3+'px'" id="font13" style='font-weight: bold;'>{{today}}</div>
@@ -56,12 +108,28 @@
 							</div>
 							<a href="#" class="small-box-footer" @click="$router.push({name:'maintainList'})" :style="'font-size:'+setheight[0]/8+'px'">More info <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
-
-					</div>
+					</div> -->
 					<!-- ./col -->
-					<div class="ivu-col ivu-col-span-6" id='title4' style="padding-left:10px;padding-right:10px">
-
-						<!-- small box -->
+					<div class="col-md-3 col-xl-3">
+						<el-card :body-style="{ padding: '0px' }">
+							<div class="row">
+								<div class="col-md-4 col-xl-4" style="padding: 14px;"><img style="display: block;margin: 0 auto;" src="../../assets/icons/online.png"></div>
+								<div class="col-md-8 col-xl-8" style="float: right;">
+									<div style=" font-size: 14px; float: right; padding-right: 14px;padding-top: 14px;">
+										{{$t("Online Devices")}}
+									</div>
+									<div style=" font-size: 32px; float: right; padding-right: 14px; clear: both;">
+										{{onlinedevice}}/{{alldevice}}
+									</div>
+								</div>
+							</div>
+							<hr>
+							<div style="padding: 10px;">
+								<a href="#" class="small-box-footer" @click="$router.push({name:'map'})" :style="'font-size:'+setheight[0]/8+'px'" style="color: #999;">More info <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</el-card>
+					</div>
+<!-- 					<div class="ivu-col ivu-col-span-6" id='title4' style="padding-left:10px;padding-right:10px">
 						<div class="small-box bg-green">
 							<div class="inner" style="text-align:center; padding:4px">
 								<div :style="'font-size:'+setheight[0]/2.3+'px'" id="font14" style='font-weight: bold;' v-if="shine">{{onlinedevice}}/{{alldevice}}</div>
@@ -73,56 +141,42 @@
 							<a href="#" class="small-box-footer" @click="$router.push({name:'map'})" :style="'font-size:'+setheight[0]/8+'px'">More info <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 
-					</div>
+					</div> -->
 					<!-- ./col -->
 				</div>
 				<!-- /.row -->
 				<!-- Main row -->
-				<Row :gutter=20>
-					<!-- Left col -->
-					<!-- <section class="col-lg-5 connectedSortable"> -->
-					
-
-					<draggable :options="{animation: 60,group:'panel'}">
-						<Col span='6' id="chatwidth">
-						  <!-- /.box -->
-						<!-- Chat box -->
-						<div class="box box-primary" v-if="chat" >
-							<div class="box-header" style="margin:0">
-							  <!-- tools box -->
-							  <div class="pull-right box-tools">
-								  <button type="button" class="btn btn-primary btn-sm pull-right" @click="chat=!chat;showpanel('chat',chat)"><i class="fa fa-times"></i>
-								  </button>
-									<div class="btn-group" style="margin-right: 5px;">
-										<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" @click="widthblock1('chatwidth')">
-											<i class="fa fa-bars"></i></button>
-										<div class="dropdown-menu pull-right" role="menu">
-											<div style="display: inline-block; font-size:smaller;height:20px;margin-left:5px">{{$t('size')}}：</div>
-											<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size1" @mouseover.native="widthblock2(1)" @mouseout.native="widthblock1('chatwidth')" @click.native="widthblock3('chatwidth',1)"></Card>
-											<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size2" @mouseover.native="widthblock2(2)" @mouseout.native="widthblock1('chatwidth')" @click.native="widthblock3('chatwidth',2)"></Card>
-											<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size3" @mouseover.native="widthblock2(3)" @mouseout.native="widthblock1('chatwidth')" @click.native="widthblock3('chatwidth',3)"></Card>
-											<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size4" @mouseover.native="widthblock2(4)" @mouseout.native="widthblock1('chatwidth')" @click.native="widthblock3('chatwidth',4)"></Card>
-										</div>
+				<div class="row" style="padding-top: 15px;">
+					<div class="col-8">
+						<div class="row">
+							<div class="col-8">
+								<el-card :body-style="{ padding: '0px' }">
+									<div style="padding:14px;">
+										<i class="fa fa-th" style="float: left;font-size: 20px"></i>
+										<div style="font-size: 14px; padding-left: 25px;">{{$t("Achievement Chart")}}</div>
 									</div>
-							
-								<button type="button" class="btn btn-primary btn-sm pull-right" title="Collapse" style="margin-right: 5px;" @click="chatbody=!chatbody">
-								  <i class="fa fa-minus" v-if="chatbody"></i> <i class="fa fa-plus" v-if="!chatbody"></i>
-								</button>
-							  </div>
-							  <!-- /. tools -->
-							
-							  <i class="fa fa-comments-o"></i>
-							  <h3 class="box-title" v-if="text1">
-								{{$t("Feedback")}}
-							  </h3>
+									<hr>
+									<div style="padding: 14px;" :style="'height:'+screenheight/2.7+'px'">
+										<myline></myline>
+									</div>
+								</el-card>
 							</div>
+							<div class="col-4">
+								<el-card :body-style="{ padding: '0px' }">
+									<div style="padding:14px;">
+										<i class="fa fa-comments-o" style="float: left;font-size: 20px"></i>
+										<div style="font-size: 14px; padding-left: 25px;">{{$t("Feedback")}}</div>
+									</div>
+									<hr>
+									<div style="padding: 14px;" :style="'height:'+screenheight/2.7+'px'">
 							<transition name="bounce">
 							<div class="box-body chat" id="chat-box" v-if="chatbody" :style="'height:'+screenheight/2.55+'px'">
 								<!-- chat item -->
-								<Scroll :on-reach-bottom='handleReachBottom' :distance-to-edge="0" style="margin-top: 5px;width:103%;" :height="screenheight/2.55-60">
+								<Scroll :on-reach-bottom='handleReachBottom' :distance-to-edge="0" style="margin-top: 5px;width:103%;" :height="screenheight/2.55-110">
 									<div class="item" v-for="item in chatlist" >
 										<img :src="item.portrait" alt="user image" class="online" onerror="src='../../../static/admin.jpg'">
-										<p class="message">
+										<img src="../../assets/icons/dialog.png" style="margin-left: -10px;">
+										<p class="message" style="background-color: #b8d8d8; border-radius: 10px;">
 											<a href="#" class="name">
 												<!-- <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15 &nbsp;&nbsp;</small> -->
 												<div style="font-size: large;" :style="'font-size:'+setheight[0]/6+'px'">{{item.username}}</div>
@@ -131,10 +185,15 @@
 											<div style="display: inline-block;width:95%;margin-top:5px">
 											<Col span='1'>&nbsp;</Col>
 											<Col span='5'><i class="fa fa-clock-o" style='margin-top: 10px;'></i>&nbsp;{{item.create_time}}</Col>
-											<Col span='4'><Button type="text" @click="recall(item.id)" v-if="item.from_id">{{$t("withdraw")}}</Button>&nbsp;</Col>
+											<Col span='4'><el-button @click="recall(item.id)" v-if="item.from_id"><i class="fa fa-refresh"></i>&nbsp;{{$t("withdraw")}}</el-button>&nbsp;</Col>
 											<Col span='7'>
-												<Button type="text" @click="item.showlist=true" v-if="!item.showlist" style="outline: none;">{{item.followlist.length}}{{$t("replies")}}</Button>
-												<Button type="text" @click="item.showlist=false" v-if="item.showlist">{{$t("hidden reply")}}</Button>
+												<!-- <Button type="text" @click="item.showlist=true" v-if="!item.showlist" style="outline: none;">{{item.followlist.length}}{{$t("replies")}}</Button> -->
+												<el-badge :value="item.followlist.length" class="item" v-if="!item.showlist" style="padding-left: 20px;">
+													<el-button size="small" @click="item.showlist=true">{{$t("reply")}}</el-button>
+												</el-badge>
+												<el-badge class="item" v-if="item.showlist" style="padding-left: 20px;">
+													<el-button @click="item.showlist=false">{{$t("hidden")}}</el-button>
+												</el-badge>
 											</Col>
 											<Col span='7'>
 												<Button type="text" @click="reply=$t('respond ')+item.username+':';chatoptions.follow=item.id;chatoptions.content=''" v-if="chatoptions.follow!=item.id" style="outline: none;">{{$t("respond here")}}</Button>
@@ -167,72 +226,58 @@
 								</div> -->
 								<form action="#" method="post" style="margin-top:5px">
 									<div class="input-group">
-										<Col span='18'><textarea type="text" name="message" style="height:40px" :placeholder="reply" class="form-control" v-model="chatoptions.content" :style="'font-size:'+screenheight/55+'px'"></textarea></Col>
+										<Col span='18'><textarea type="text" name="message" style="height:40px;border-radius: 10px;" :placeholder="reply" class="form-control" v-model="chatoptions.content" :style="'font-size:'+screenheight/55+'px'"></textarea></Col>
 										<Col span='6'>
 										<span class="input-group-btn" style="width: 100%">
-											<button type="button" class="btn btn-primary btn-flat" @click="sentchat()" v-if="chatoptions.follow!=-1" :disabled="btn2" style="height:40px;width:100%">{{$t("respond")}}</button>
-											<button type="button" class="btn btn-primary btn-flat" @click="sentchat()" v-if="chatoptions.follow==-1" :disabled="btn2" style="height:40px;width:100%">{{$t("message")}}</button>
+											<Button type="primary" @click="sentchat()" v-if="chatoptions.follow!=-1" :disabled="btn2" style="height:40px;width:100%">{{$t("respond")}}</Button>
+											<Button type="primary" @click="sentchat()" v-if="chatoptions.follow==-1" :disabled="btn2" style="height:40px;width:100%">{{$t("message")}}</Button>
 										</span>
 										</Col>
 									</div>
 								</form>
 							</div>
 							</transition>
-						</div>
-						</Col>
-						<Col span='6' id="progresswidth">
-						<!-- /.box (chat box) -->
-						<!-- TO DO List -->
-						<div class="box box-primary" v-if="progress" >
-							<div class="box-header">
-								<i class="fa fa-hourglass-2"></i>
-								<h3 class="box-title" v-if="text2">{{$t("Treating Progress")}}</h3>
-								<div class="pull-right box-tools">
-									<div class="btn-group" style="margin-right: 5px;">
-										<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" @click="widthblock1('progresswidth')">
-											<i class="fa fa-bars"></i></button>
-										<div class="dropdown-menu pull-right" role="menu">
-											<div style="display: inline-block; font-size:smaller;height:20px;margin-left:5px">{{$t('size')}}：</div>
-											<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size1" @mouseover.native="widthblock2(1)" @mouseout.native="widthblock1('progresswidth')" @click.native="widthblock3('progresswidth',1)"></Card>
-											<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size2" @mouseover.native="widthblock2(2)" @mouseout.native="widthblock1('progresswidth')" @click.native="widthblock3('progresswidth',2)"></Card>
-											<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size3" @mouseover.native="widthblock2(3)" @mouseout.native="widthblock1('progresswidth')" @click.native="widthblock3('progresswidth',3)"></Card>
-											<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size4" @mouseover.native="widthblock2(4)" @mouseout.native="widthblock1('progresswidth')" @click.native="widthblock3('progresswidth',4)"></Card>
-										</div>
 									</div>
-									<button type="button" class="btn btn-primary btn-sm pull-right" @click="progress=!progress"><i class="fa fa-times"></i>
-									</button>
-								<button type="button" class="btn btn-primary btn-sm pull-right" title="Collapse" style="margin-right: 5px;" @click="progressbody=!progressbody">
-									<i class="fa fa-minus" v-if="progressbody"></i> <i class="fa fa-plus" v-if="!progressbody"></i>
-								</button>
-								</div>
+								</el-card>
 							</div>
+						</div>
+
+					</div>
+					<div class="col-4">
+						 <el-card :body-style="{ padding: '0px' }">
+							<div style="padding:14px;">
+							 	<i class="fa fa-hourglass-2" style="float: left;font-size: 20px"></i>
+							 	<div style="font-size: 14px; padding-left: 25px;">{{$t("Treating Progress")}}</div>
+							</div>
+							<hr>
+							<div style="padding: 14px;" :style="'height:'+screenheight/2.7+'px'">
 							<!-- /.box-header -->
 							<transition name="bounce">
 							<div class="box-body" v-if="progressbody" style="" :style="'height:'+screenheight/2.55+'px'">
 								<Select class="smr" v-model="prostate" style="width:100%;" :placeholder="$t('progress')" @on-change="getprogress(1)">
 									<Option key="6" :label="$t('all')" value="6"></Option>
-									<Option key="1" :label="$t('untreated')" value="1"></Option>
-									<Option key="2" :label="$t('examine order')" value="2"></Option>
+									<Option key="2" :label="$t('untreated')" value="2"></Option>
+									<Option key="1" :label="$t('examine order')" value="1"></Option>
 									<Option key="3" :label="$t('treating')" value="3"></Option>
 									<Option key="4" :label="$t('examine finished')" value="4"></Option>
 									<Option key="5" :label="$t('stored')" value="5"></Option>
 								</Select>
-								<Scroll :on-reach-bottom='handleReachBottom2' :distance-to-edge="0" style="margin-top: 5px;width:101%" :height="screenheight/2.55-55">
+								<Scroll :on-reach-bottom='handleReachBottom2' :distance-to-edge="0" style="margin-top: 5px;width:101%" :height="screenheight/2.55-110">
 								<ul class="todo-list" style=" padding:3">
-									<div v-for="item in todo" :style="'font-size:'+screenheight/54+'px'" style="">
+									<div v-for="item in todo" :style="'font-size:'+screenheight/60+'px'" style="">
 										<Col span='24'> 
-											<span class="text">{{$t('device')}}：{{item.pro}}</span>
+											<span class="text"><el-tag type="warning">{{$t('device')}}</el-tag><Tag color="blue">{{item.pro}}</Tag></span>
 											<small class="label label-danger"><i class="fa fa-clock-o"></i> {{item.time}}</small>
 										</Col>
 										<div>
-											<Col span='24' v-if="item.type=='240'">{{$t('fault code')}}：E{{item.description}}{{$t('E'+item.description)}}</Col>
-											<Col span='24' v-if="item.type=='15'">{{$t('fault code')}}：E{{item.description}}{{$t('dE'+item.description)}}</Col>
+											<Col span='24' v-if="item.type=='240'"><el-tag type="warning">{{$t('fault code')}}</el-tag><Tag color="blue">E{{item.description}}{{$t('E'+item.description)}}</Tag></Col>
+											<Col span='24' v-if="item.type=='15'"><el-tag type="warning">{{$t('fault code')}}</el-tag><Tag color="blue">E{{item.description}}{{$t('dE'+item.description)}}</Tag></Col>
 										</div>
 										<div>
-											<Col span='24'>{{$t('install address')}}：{{item.addr}}</Col> 
+											<Col span='24'><el-tag type="warning">{{$t('install address')}}</el-tag><Tag color="blue">{{item.addr}}</Tag></Col> 
 										</div>
-										<Col span='3' style="margin-bottom: 10px;display: inline-block;" :style="'min-width:'+screenwidth/18+'px;'">{{$t('progress')}}：</Col>
-										<Col span='18' style="margin-bottom: 10px;display: inline-block;" :style="">
+										<Col span='3' style="margin-bottom: 10px;display: inline-block;" :style="'min-width:'+screenwidth/18+'px;'"><el-tag type="warning">{{$t('progress')}}</el-tag></Col>
+										<Col span='18' style="margin-bottom: 10px;display: inline-block;">
 											<Col span='20' @mouseenter.native="barword=item.num;" @mouseleave.native="barword='';">
 												<div class="progress horizontal active" :style="'height:'+screenheight/42+'px'" v-if="item.progress =='100%'" >
 													<div :style="'font-size:'+screenheight/54+'px'" v-if="barword==item.num" style="position: absolute;left:45%;color:#ffffff"> {{item.state}} </div>
@@ -263,250 +308,65 @@
 							</div>
 							</transition>
 							<!-- /.box-body -->
-						</div>
-						<!-- /.box -->
-						</Col>
-						
-						<Col span='12' id="chartwidth">
-					<!-- </section> -->
-					<!-- /.Left col -->
-					<!-- right col (We are only adding the ID to make the widgets sortable)-->
-						<!-- solid sales graph -->
-						<div class="box box-primary" v-if="chart">
-							<div class="box-header">
-								<i class="fa fa-th"></i>
-
-								<h3 class="box-title" v-if="text3">{{$t("Achievement Chart")}}</h3>
-								
-								<div class="box-tools pull-right">
-									<div class="btn-group" style="margin-right: 5px;">
-										<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" @click="widthblock1('chartwidth')">
-											<i class="fa fa-bars"></i></button>
-										<div class="dropdown-menu pull-right" role="menu">
-											<div style="display: inline-block; font-size:smaller;height:20px;margin-left:5px">{{$t('size')}}：</div>
-											<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size1" @mouseover.native="widthblock2(1)" @mouseout.native="widthblock1('chartwidth')" @click.native="widthblock3('chartwidth',1);chartwidth()"></Card>
-											<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size2" @mouseover.native="widthblock2(2)" @mouseout.native="widthblock1('chartwidth')" @click.native="widthblock3('chartwidth',2);chartwidth()"></Card>
-											<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size3" @mouseover.native="widthblock2(3)" @mouseout.native="widthblock1('chartwidth')" @click.native="widthblock3('chartwidth',3);chartwidth()"></Card>
-											<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size4" @mouseover.native="widthblock2(4)" @mouseout.native="widthblock1('chartwidth')" @click.native="widthblock3('chartwidth',4);chartwidth()"></Card>
-										</div>
-									</div>
-									<button type="button" class="btn btn-primary btn-sm" @click="chartbody=!chartbody;areafault();">
-										<i class="fa fa-minus" v-if="chartbody"></i>
-										<i class="fa fa-plus" v-if="!chartbody"></i>
-									</button>
-									<button type="button" class="btn btn-primary btn-sm" @click="chart=false"><i class="fa fa-times"></i>
-									</button>
-								</div>
+							</div>
+						</el-card>
+					</div>
+				</div>
+				
+				<div class="row" style="padding-top: 15px;">
+					<div class="col-6">
+						<el-card :body-style="{ padding: '0px' }">
+							<div style="padding:14px;">
+								<i class="fa fa-th" style="float: left;font-size: 20px"></i>
+								<div style="font-size: 14px; padding-left: 25px;">{{$t("Common Faults")}}</div>
+							</div>
+							<hr>
+							<div style="padding: 14px;" :style="'height:'+screenheight/2.7+'px'">
+<!-- 								<v-chart :options="myChart" style="width: 100%;height: 300px;"/> -->
+								<piechart></piechart>
+							</div>
+						</el-card>
+					</div>
+					<div class="col-6">
+						 <el-card :body-style="{ padding: '0px' }">
+							<div style="padding:14px;">
+							 	<i class="fa fa-th" style="float: left;font-size: 20px"></i>
+							 	<div style="font-size: 14px; padding-left: 25px;">{{$t("Active Devices")}}</div>
+							 </div>
+							 <hr>
+							<div style="padding: 14px;" :style="'height:'+screenheight/2.7+'px'">
+								<linechart></linechart>
+							</div>
+						</el-card>
+					</div>
+				</div>
+				
+				<div class="row" style="padding-top: 15px;">
+					<div class="col-12">
+						<el-card :body-style="{ padding: '0px' }">
+							<div style="padding: 14px;">
+								<i class="fa fa-map-marker" style="float: left;font-size: 20px"></i>
+								<div style="font-size: 14px; padding-left: 20px;">{{$t("Devices Location")}}</div>
 							</div>
 							<transition name="bounce">
-							<div class="box-body border-radius-none" v-if="chartbody" :style="'height:'+screenheight/2.55+'px'">
-								<swiper id="swiperBox" v-bind:options="swiperOption" ref="mySwiper">
-									<swiper-slide>
-										<div class='' :style="'height:'+screenheight/2.7+'px'">
-										<compare></compare>
-										</div>
-										<div class="swiper-button-next"></div>
-									</swiper-slide>
-									<!-- <swiper-slide>
-										<div class="swiper-button-prev"></div>
-										<div class='' style="height:370px">
-											<freq></freq>
-										</div>
-										<div class="swiper-button-next"></div>
-									</swiper-slide> -->
-									<swiper-slide>
-										<div class="swiper-button-prev"></div>
-										<div class='' :style="'height:'+screenheight/2.7+'px'">
-											<!-- <div id="test1" style="height:300px;width:100%"> </div> -->
-											<test1></test1>
-										</div>
-									</swiper-slide>
-								</swiper>
+							<div style="background:#f5f3f0;border: 0;" :style="'height:'+screenheight/1.55+'px'" v-if="mapbody">
+								<Map style="margin-top:0px;margin:0"></Map>
 							</div>
 							</transition>
-						</div>
-						<!-- /.box -->
-						</Col>
-					
-						<Col span='6' id="chartwidth2">
-						<!-- </section> -->
-						<!-- /.Left col -->
-						<!-- right col (We are only adding the ID to make the widgets sortable)-->
-							<!-- solid sales graph -->
-							<div class="box box-primary" v-if="chart2">
-								<div class="box-header">
-									<i class="fa fa-th"></i>
-									<h3 class="box-title" v-if="text4">用户组成</h3>
-									<div class="box-tools pull-right">
-										<div class="btn-group" style="margin-right: 5px;">
-											<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" @click="widthblock1('chartwidth2')">
-												<i class="fa fa-bars"></i></button>
-											<div class="dropdown-menu pull-right" role="menu">
-												<div style="display: inline-block; font-size:smaller;height:20px;margin-left:5px">{{$t('size')}}：</div>
-												<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size1" @mouseover.native="widthblock2(1)" @mouseout.native="widthblock1('chartwidth2')" @click.native="widthblock3('chartwidth2',1);chartwidth()"></Card>
-												<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size2" @mouseover.native="widthblock2(2)" @mouseout.native="widthblock1('chartwidth2')" @click.native="widthblock3('chartwidth2',2);chartwidth()"></Card>
-												<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size3" @mouseover.native="widthblock2(3)" @mouseout.native="widthblock1('chartwidth2')" @click.native="widthblock3('chartwidth2',3);chartwidth()"></Card>
-												<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size4" @mouseover.native="widthblock2(4)" @mouseout.native="widthblock1('chartwidth2')" @click.native="widthblock3('chartwidth2',4);chartwidth()"></Card>
-											</div>
-										</div>
-										<button type="button" class="btn btn-primary btn-sm" @click="chartbody2=!chartbody2;MemberCharts();">
-											<i class="fa fa-minus" v-if="chartbody2"></i>
-											<i class="fa fa-plus" v-if="!chartbody2"></i>
-										</button>
-										<button type="button" class="btn btn-primary btn-sm" @click="chart2=false"><i class="fa fa-times"></i>
-										</button>
-									</div>
-								</div>
-								<transition name="bounce">
-								<div class="box-body border-radius-none" v-if="chartbody2" style="height:380px">
-
-								</div>
-								</transition>
-							</div>
-							</Col>
-							
-							<Col span='6' id="emailwidth">
-							<!-- quick email widget -->
-							<div class="box box-primary" v-if="email">
-								<div class="box-header">
-									<i class="fa fa-envelope"></i>
-							
-									<h3 class="box-title" v-if="text5">{{$t("Notice")}}</h3>
-									<!-- tools box -->
-									<div class="pull-right box-tools">
-										<div class="btn-group" style="margin-right: 5px;">
-											<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" @click="widthblock1('emailwidth')">
-												<i class="fa fa-bars"></i></button>
-											<div class="dropdown-menu pull-right" role="menu">
-												<div style="display: inline-block; font-size:smaller;height:20px;margin-left:5px">{{$t('size')}}：</div>
-												<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size1" @mouseover.native="widthblock2(1)" @mouseout.native="widthblock1('emailwidth')" @click.native="widthblock3('emailwidth',1)"></Card>
-												<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size2" @mouseover.native="widthblock2(2)" @mouseout.native="widthblock1('emailwidth')" @click.native="widthblock3('emailwidth',2)"></Card>
-												<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size3" @mouseover.native="widthblock2(3)" @mouseout.native="widthblock1('emailwidth')" @click.native="widthblock3('emailwidth',3)"></Card>
-												<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size4" @mouseover.native="widthblock2(4)" @mouseout.native="widthblock1('emailwidth')" @click.native="widthblock3('emailwidth',4)"></Card>
-											</div>
-										</div>
-										<button type="button" class="btn btn-primary btn-sm" @click="emailbody=!emailbody">
-											<i class="fa fa-minus" v-if="emailbody"></i>
-											<i class="fa fa-plus" v-if="!emailbody"></i>
-										</button>
-										<button type="button" class="btn btn-primary btn-sm" @click="email=false"><i class="fa fa-times"></i>
-										</button>
-									</div>
-									<!-- /. tools -->
-								</div>
-								<transition name="bounce">
-								<div class="box-body" v-if="emailbody" :style="'height:'+screenheight/2.55+'px'">
-									<form action="#" method="post">
-										<div class="form-group">
-											<input type="email" class="form-control" name="emailto" :placeholder="$t('Send to:')" v-model="options.toId" :style="'height:'+screenheight/25+'px;font-size:'+screenheight/40+'px'">
-										</div>
-										<div class="form-group">
-											<input type="text" class="form-control" name="subject" :placeholder="$t('title')" v-model="options.title" :style="'height:'+screenheight/25+'px;font-size:'+screenheight/40+'px'">
-										</div>
-										<div>
-											<textarea class="textarea" :placeholder="$t('content')" v-model="options.content" style="width: 100%;line-height: 18px; border: 1px solid #dddddd; padding: 10px;" :style="'height:'+screenheight/6+'px;font-size:'+screenheight/50+'px'"></textarea>
-										</div>
-										<button type="button" class="pull-right btn btn-default" id="sendEmail" @click="sent()" :disabled="btn">{{$t('send')}}
-											<i class="fa fa-arrow-circle-right"></i></button>
-									</form>
-								</div>
-								</transition>
-							</div>
-							</Col>
-							
-							<Col span='6' id="chartwidth3">
-								<div class="box box-primary" v-if="chart3">
-									<div class="box-header">
-										<i class="fa fa-th"></i>
-										<h3 class="box-title" v-if="text6">{{$t("Common Faults")}}</h3>
-										<div class="box-tools pull-right">
-											<div class="btn-group" style="margin-right: 5px;">
-												<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" @click="widthblock1('chartwidth3')">
-													<i class="fa fa-bars"></i></button>
-												<div class="dropdown-menu pull-right" role="menu">
-													<div style="display: inline-block; font-size:smaller;height:20px;margin-left:5px">{{$t('size')}}：</div>
-													<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size1" @mouseover.native="widthblock2(1)" @mouseout.native="widthblock1('chartwidth3')" @click.native="widthblock3('chartwidth3',1);chartwidth()"></Card>
-													<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size2" @mouseover.native="widthblock2(2)" @mouseout.native="widthblock1('chartwidth3')" @click.native="widthblock3('chartwidth3',2);chartwidth()"></Card>
-													<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size3" @mouseover.native="widthblock2(3)" @mouseout.native="widthblock1('chartwidth3')" @click.native="widthblock3('chartwidth3',3);chartwidth()"></Card>
-													<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size4" @mouseover.native="widthblock2(4)" @mouseout.native="widthblock1('chartwidth3')" @click.native="widthblock3('chartwidth3',4);chartwidth()"></Card>
-												</div>
-											</div>
-											<button type="button" class="btn btn-primary btn-sm" @click="chartbody3=!chartbody3;MemberCharts();">
-												<i class="fa fa-minus" v-if="chartbody3"></i>
-												<i class="fa fa-plus" v-if="!chartbody3"></i>
-											</button>
-											<button type="button" class="btn btn-primary btn-sm" @click="chart3=false"><i class="fa fa-times"></i>
-											</button>
-										</div>
-									</div>
-									<transition name="bounce">
-									<div class="box-body border-radius-none" v-if="chartbody3" :style="'height:'+screenheight/2.55+'px'">
-										<swiper id="swiperBox2" v-bind:options="swiperOption" ref="mySwiper">
-											<swiper-slide>
-												<div class='' :style="'height:'+screenheight/2.7+'px'">
-												<faultfreq></faultfreq>
-												</div>
-											</swiper-slide>
-										</swiper>
-									</div>
-									</transition>
-								</div>
-							</Col>
-							<Col span='12' id="chartwidth4">
-								<div class="box box-primary" v-if="chart4">
-									<div class="box-header">
-										<i class="fa fa-th"></i>
-										<h3 class="box-title" v-if="text7">{{$t("Active Devices")}}</h3>
-										<div class="box-tools pull-right">
-											<div class="btn-group" style="margin-right: 5px;">
-												<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" @click="widthblock1('chartwidth4')">
-													<i class="fa fa-bars"></i></button>
-												<div class="dropdown-menu pull-right" role="menu">
-													<div style="display: inline-block; font-size:smaller;height:20px;margin-left:5px">{{$t('size')}}：</div>
-													<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size1" @mouseover.native="widthblock2(1)" @mouseout.native="widthblock1('chartwidth4')" @click.native="widthblock3('chartwidth4',1);chartwidth()"></Card>
-													<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size2" @mouseover.native="widthblock2(2)" @mouseout.native="widthblock1('chartwidth4')" @click.native="widthblock3('chartwidth4',2);chartwidth()"></Card>
-													<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size3" @mouseover.native="widthblock2(3)" @mouseout.native="widthblock1('chartwidth4')" @click.native="widthblock3('chartwidth4',3);chartwidth()"></Card>
-													<Card style="height:20px;width:20px;cursor: pointer;display: inline-block;border-radius:0;" :style="'background:'+size4" @mouseover.native="widthblock2(4)" @mouseout.native="widthblock1('chartwidth4')" @click.native="widthblock3('chartwidth4',4);chartwidth()"></Card>
-												</div>
-											</div>
-											<button type="button" class="btn btn-primary btn-sm" @click="chartbody4=!chartbody4;MemberCharts();">
-												<i class="fa fa-minus" v-if="chartbody4"></i>
-												<i class="fa fa-plus" v-if="!chartbody4"></i>
-											</button>
-											<button type="button" class="btn btn-primary btn-sm" @click="chart4=false"><i class="fa fa-times"></i>
-											</button>
-										</div>
-									</div>
-									<transition name="bounce">
-									<div class="box-body border-radius-none" v-if="chartbody4" :style="'height:'+screenheight/2.55+'px'">
-										<swiper id="swiperBox2" v-bind:options="swiperOption" ref="mySwiper">
-											<swiper-slide>
-												<div class='' :style="'height:'+screenheight/2.7+'px'">
-												<activedoor></activedoor>
-												</div>
-											</swiper-slide>
-										</swiper>
-									</div>
-									</transition>
-								</div>
-							</Col>
-						<!-- /.box -->
-						
-						</draggable>
-					<!-- right col -->
-				</Row>
+						</el-card>
+					</div>
+				</div>
+				
 				<!-- /.row (main row) -->
 			</section>
-			<Col span='22'>&nbsp;</Col>
-			<Col span='2' style="vertical-align: middle;">
-				<div style="cursor: pointer;color:blue;font-size: larger;margin-left: 20px" @click="value1=true">
-					<span style="font-size: 16px" class="fa fa-eye fa-2x"></span>
-						内容筛选
-				</div>
-			</Col>
 	</div>
 </template>
 <script>
+	import linechart from '@/views/Dashboard/linechart'
+	import myline from '@/views/Dashboard/myline'
+	import piechart from '@/views/Dashboard/piechart'
+	import { StatsCard, ChartCard } from "@/components/index";
+	import Chartist from 'chartist';
 	import draggable from 'vuedraggable'
 	import Map from '@/views/Dashboard/Map'
 	import test1 from '@/views/Dashboard/Order'
@@ -518,9 +378,13 @@
 	export default {
 		name: 'HelloWorld',
 		components: {
+			ChartCard,
 			draggable,
 			'Map': Map,
 			'test1':test1,
+			'myline':myline,
+			'piechart':piechart,
+			'linechart':linechart,
 			'faultfreq':faultfreq,
 			'activedoor':activedoor,
 			'compare':compare,

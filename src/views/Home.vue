@@ -1,123 +1,18 @@
 <template>
-<!-- 	<div class="layout">
-		<Layout class="test" :style="{minHeight: '100vh',width: screenwidth+'px'}" style="" id="layout">
-			<Sider :style="{minHeight: '100vh',background:bottomcolor,color:fontcolor}" hide-trigger collapsible :collapsed-width="78" v-model="isCollapsed" v-if="!full">
-				<Menu ref="side1" :class="menuitemClasses" :theme="bg3" width="auto" @on-select="go" :active-name="active" :style="{background:bottomcolor,color:fontcolor}">
-					<div style="width: 100%;height: 64px;" :style="'background:'+bg1">
-						<img :src="logo" onerror="src='../../static/logo-menu.png'" style="padding-left: 30%;cursor: pointer;width: 66%;height:100%">
-					</div>
-					<template>
-						<div class="user-panel">
-							<Col span="8" >
-								<img :src="portrait" class="img-circle" alt="User Image" onerror="src='../../static/admin.jpg'">
-							</Col>
-							<Col span="16" style="padding-top: 10px;">
-								<p>&nbsp;&nbsp;{{info.nickname}}</p>
-							</Col>
-						</div>
-					</template>
-					<template v-for="item in menu" v-if="!item.sub" >
-						<MenuItem  :key="item.name" :name="item.name" :style="{}" v-if="item.key" style="font-size:13px">
-							<i :key="item.name" :class="item.icon" size="16" style="margin-left: -15px;"></i>
-							{{$t(isCollapsed?'':item.label.toString())}}
-						</MenuItem >
-					</template>
-					<template v-else>
-						<Submenu :name="item.name" v-if="item.key" style="font-size:13px">
-							<template slot="title" >
-								<i :key="item.name" :class="item.icon" size="16" style="margin-left: -15px;"></i>
-								<Badge v-if="item.count" :count="item.count" class-name="badge-sub-alone" :dot="true">
-									{{$t(isCollapsed?'':item.label.toString())}}
-								</Badge>
-								<i v-else>{{$t(isCollapsed?'':item.label.toString())}}</i>
-							</template>
-							<Menu-item class="submenu" v-for="sub in item.sub" :key="sub.name" :style="{color:fontcolor}" :name="sub.name" v-if="sub.key" style="margin-left:-7px;font-size:13px">
-								<Badge class-name="badge-alone" overflow-count="99" :count="sub.count?sub.count:0">{{$t(sub.label.toString())}}</Badge>
-							</Menu-item>
-						</Submenu>
-					</template>
-				</Menu>
-			</Sider>
-			<Layout>
-				<Header  class="m-header" v-if="!full" :style="'background:'+bg2">
-					<Row>
-						<Col span="17">
-							&nbsp;
-						</Col>
-						<Col span="3">
-							<Dropdown class="layout-header-user fr" @on-click="changelang" trigger="click" >
-								<Button type="primary" long class="w-button" :style="'background:'+bg2">
-									<Col span="5">
-										Language:
-									</Col>
-									<Col span="19">
-										<p style="color: white;width: 100%;">{{$t("lang")}}</p>
-									</Col>
-								</Button>
-								<Dropdown-menu slot="list">
-									<Dropdown-item :name="1">中文</Dropdown-item>
-									<Dropdown-item :name="2">English</Dropdown-item>
-								</Dropdown-menu>
-							</Dropdown>
-						</Col>
-						<Col span="3">
-							<Dropdown class="layout-header-user fr" @on-click="logout" trigger="click" >
-								<Button type="primary" long class="w-button" :style="'background:'+bg2">
-									<Col span="5">
-										<img :src="portrait" class="img-circle2" alt="User Image" onerror="src='../../static/admin.jpg'">
-									</Col>
-									<Col span="19">
-										<p style="color: white;width: 100%;">{{info.nickname}}</p>
-									</Col>
-								</Button>
-								<Dropdown-menu slot="list">
-									<Dropdown-item :name="4">{{$t("Personal Information")}}</Dropdown-item>
-									<Dropdown-item :name="6">{{$t("Change Password")}}</Dropdown-item>
-									<Dropdown-item :name="5">{{$t("WeChat Follow")}}</Dropdown-item>
-									<Dropdown-item :name="3">{{$t("Logout")}}</Dropdown-item>
-								</Dropdown-menu>
-							</Dropdown>
-						</Col>
-						<Col span="1" style="">
-							<Button style="border:0;background:transparent;padding-left: 20px;right: 0px;" size="small" @click="fullscreen()">
-								<div style="color:#ffffff"><icon name="full" width="10" height="10" slot="prepend"></icon>&nbsp;{{$t("Fullscreen")}}</div>
-							</Button>
-						</Col>
-					</Row>
-				</Header>
-				<Content :style="{padding: '0 4px 4px',position:'relative',minHeight: '91vh'}" >
-					<div class="layout-content-main">
-						<transition name="fade">
-							<router-view></router-view>
-						</transition>
-					</div>
-				</Content>
-				<div @click="quitfull()" v-if='full' style="height:15px;" @mouseover="show(1)">
-					<Col span='22'>
-						<div @mouseout="show(2)">&nbsp;</div>
-					</Col>
-					<Col span='2' v-if='quit' @mouseout="show(2)" style="cursor: pointer;">
-						<div @mouseout="show(2)">
-							<icon name="quit" width="10" height="10" slot="prepend" ></icon> {{$t("Quit")}}
-						</div>
-					</Col>
-				</div>
-			</Layout>
-		</Layout>
-	</div> -->
 	<el-container class="Content">
 	  <el-aside class="content-nav" :width="asideWidth">
 	    <div class="content-logo">
-	      <img src="../assets/images/logo.png" alt="logo" >
+	      <img src="../assets/images/logo1.png" alt="logo" >
 	      <h2 v-show="!isCollapse">宁波申菱</h2>
 	    </div>
 	<!--   <Menu :collapse="isCollapse"/> -->
-		<el-menu  :collapse="isCollapse" background-color="#1d2c47" text-color="#fff" active-text-color="#1296db" class="el-menu-vertical" @select="go" :active-name="active">
+		<el-menu  :collapse="isCollapse" background-color="#f8f8f8" text-color="#292929" active-text-color="#2dbe60" class="el-menu-vertical" @select="go" :active-name="active">
             <template v-for="item in items">
                 <template v-if="item.subs">
                     <el-submenu :index="item.index" :key="item.index">
                         <template slot="title">
-                           <img :src="item.icon" alt=""><span slot="title">{{$t(isCollapsed?'':item.title.toString())}}</span>
+                           <img id="myimg" :src="item.icon" alt=""><span slot="title">{{$t(isCollapsed?'':item.title.toString())}}</span>
+						   <div class="imgcircle" style="background-color: #f8f8f8;height: 40px; width: 40px; border-radius: 100%;margin-top: -47px; margin-left: -8px;"></div>
                         </template>
                         <el-menu-item v-for="(subItem,i) in item.subs" :key="i" :index="subItem.name">
                             {{$t(isCollapsed?'':subItem.title.toString())}}
@@ -126,14 +21,66 @@
                 </template>
                 <template v-else>
                     <el-menu-item :index="item.index" :key="item.index">
-                      <img :src="item.icon" alt=""><span slot="title">{{$t(isCollapsed?'':item.title.toString())}}</span>
+                      <img id="myimg" :src="item.icon" alt=""><span slot="title">{{$t(isCollapsed?'':item.title.toString())}}</span>
+					  <div class="imgcircle" style="background-color: #f8f8f8;height: 40px; width: 40px; border-radius: 100%;margin-top: -47px; margin-left: -8px;"></div>
                     </el-menu-item>
                 </template>
             </template>
 		</el-menu>
+		<div style="border-top: #ececec 3px solid;">
+		<el-menu background-color="#f8f8f8" text-color="#292929" active-text-color="#2dbe60" class="el-menu-vertical" style="padding-top: 10px;" :collapse="isCollapse" @select="changelang">
+			<el-submenu index="1">
+				<template slot="title">
+					<div>
+						<img id="myimg" class="img-language" src="../assets/icons/language.png">
+						<div class="imgcircle" style="background-color: #f8f8f8;height: 40px; width: 40px; border-radius: 100%;margin-top: -47px; margin-left: -8px;"></div>
+					</div>
+				</template>
+				<el-menu-item index="1">中文</el-menu-item>
+				<el-menu-item index="2">English</el-menu-item>
+			</el-submenu>
+		</el-menu>
+		</div>
+		<div class="myacount">
+			<el-tooltip class="item" effect="dark" content="account" placement="left">
+			<el-popover
+				placement="right"
+				width="300"
+				trigger="click">
+				<div class="pophead">
+					<img :src="portrait" class="img-circle2">
+					<p style="margin-top: 10px;">{{info.nickname}}</p>
+				</div>
+				<hr>
+				<div class="popmain">
+					<el-menu
+						class="mymenu"
+						@select="logout">
+						<el-menu-item index="4" class="menu-item">
+							<img src="../assets/icons/personal.png">
+							<span>{{$t("Personal Information")}}</span>
+						</el-menu-item>
+						<el-menu-item index="6" class="menu-item">
+							<img src="../assets/icons/lock.png">
+							<span slot="title">{{$t("Change Password")}}</span>
+						</el-menu-item>
+						<el-menu-item index="5" class="menu-item">
+							<img src="../assets/icons/config.png">
+							<span slot="title">{{$t("WeChat Follow")}}</span>
+						</el-menu-item>
+						<el-menu-item index="3" class="menu-item">
+							<img src="../assets/icons/logout.png">
+							<span slot="title">{{$t("Logout")}}</span>
+						</el-menu-item>
+					</el-menu>
+				</div>
+				<img slot="reference" :src="portrait" class="img-circle">
+			</el-popover>
+			</el-tooltip>
+		 </div>
 	  </el-aside>
 	  <el-container>
-	    <el-header class="content-header">
+<!-- 	    <el-header class="content-header">
 	      <h2 v-show="isCollapse">{{$t('宁波申菱')}}</h2>
 	      <el-button size="mini" type="text">
 	        <i :class="['iconfont', menuIcon]"></i>
@@ -151,7 +98,7 @@
 	          <el-dropdown-item command="3">{{$t("Logout")}}</el-dropdown-item>
 	        </el-dropdown-menu>
 	      </el-dropdown>
-	    </el-header>
+	    </el-header> -->
 	    <el-main :style="{padding: '0 4px 4px',position:'relative',minHeight: '91vh',background:bgColor}">
 	    <div class="layout-content-main">
 	    	<transition name="fade">
@@ -439,7 +386,7 @@
 			}
 		},
 		computed: {
-			asideWidth: function() { return this.isCollapse ? '65px':'201px'},
+			asideWidth: function() { return this.isCollapse ? '70px':'201px'},
 			menuIcon: function() { return this.isCollapse ? 'icon-unfold':'icon-fold'},
 			menuitemClasses: function() {
 				return [
@@ -452,9 +399,9 @@
 			window.onresize = () =>{
 				document.getElementById('layout').style.width=document.documentElement.clientWidth+'px'
 			}
-			window.addEventListener('beforeunload', e => {
-				window.localStorage.removeItem('username')
-			});
+			// window.addEventListener('beforeunload', e => {
+			// 	window.localStorage.removeItem('username')
+			// });
 		},
 		async beforeCreate(){
 			const val = await this.$api.people({
@@ -472,6 +419,9 @@
 			this.getFunction()
 		},
 		methods: {
+			handleOpen(index) {
+				alert(index);
+			},
 			getMenu(){
 				this.menus = JSON.parse(window.localStorage.getItem('menu'))
 				if(this.menus.dashboard == true){
@@ -886,16 +836,23 @@
 		background-color: #0B93D5;
 	}
 	.img-circle{
-		width: 50px;
+		width: 45px;
 		// max-width: 45px;
-		height: 50px;
+		height: 45px;
+		margin-top: 10px;
 		border-radius: 100%;
 	}
 	.img-circle2{
-		width: 30px;
+		width: 65px;
 		// max-width: 45px;
-		height: 20px;
+		height: 65px;
+		display:block;
+		margin: 0 auto;
 		border-radius: 100%;
+	}
+	.img-language{
+		width: 24px;
+		height: 24px;
 	}
 	.user-panel{
 		padding-left: 20%;
@@ -923,13 +880,16 @@
     background: #f7f7f7;
   }
   .content-nav {
-    background-color: #1d2c47;
+	border-right: #ececec 3px solid;
+	width: 100%;
+    background-color: #f8f8f8;
     min-height: 100%;
+
     transition: width .3s ease;
   }
   .content-logo {
     height: 60px;
-    background-color: #1d2c47;
+    background-color: #f8f8f8;
     border: 0;
     text-align: center;
     display: flex;
@@ -955,7 +915,7 @@
     align-items: center;
     justify-content: space-between;
     font-size: 12px;
-    background-color: #1d2c47;
+    background-color: #f8f8f8;
     h2 {
       color: #ffffff;
       letter-spacing: 1px;
@@ -976,6 +936,20 @@
     width: 200px;
     min-height: 400px;
   }
+  .el-submenu :hover{
+	  .imgcircle{background: #2dbe60 !important};
+	  #myimg{filter:  brightness(1000%);};
+  }
+  .el-menu-item :hover{
+  	  .imgcircle{background: #2dbe60 !important};
+  	  #myimg{filter:  brightness(1000%);};
+  }
+  // .el-menu-item :hover{
+	 //  background-color: #0ff !important;
+  // }
+  // .el-menu-item.is-active{
+	 //  background-color: #0B93D5 !important;
+  // }
   .iconfont {
     margin-right: 5px;
     width: 24px;
@@ -984,4 +958,27 @@
     font-size: 18px;
     vertical-align: middle;
   }
+  .myacount{
+	  width: 100%;
+	  position: absolute;
+	  margin-left: 10px;
+	  bottom: 10px;
+	  height: 70px;
+	  border-top: #ececec 3px solid;
+  }
+  .mylanguage{
+
+  }
+  .pophead{
+	  text-align: center;
+	  height: 100px;
+	  width: 100%;
+  }
+  .mymenu{
+	  border-right: 0px;
+  }
+.menu-item{
+	height: 40px;
+	font-size: 12px;
+}
 </style>

@@ -65,11 +65,67 @@
 		</Col>
 	</div>
 </template>
-
+<!-- <template>
+	<div class="layout-content-main" style="background:#f5f3f0">
+		<div class="panel border">
+		<section class="panel-title">
+			<img :src="icon" alt="">
+			<b v-text="title"></b>
+		</section>
+		<section class="panel-content">
+			<slot name="content">
+				<div slot="content">
+					<section class="list-search">
+						<el-form :inline="true" ref="form" @keydown.enter.native.prevent="search()">
+							<el-form-item>
+								<el-select v-model="show.state" :placeholder="$t('state')" @change='search()'>
+									<el-option key='1' :label="$t('all')" value='all'></el-option>
+									<el-option key='2' :label="$t('untreated')" value='untreated'></el-option>
+									<el-option key='3' :label="$t('treating')" value='treating'></el-option>
+									<el-option key='4' :label="$t('treated')" value='treated'></el-option>
+								</el-select>
+							</el-form-item>
+							<el-form-item>
+								<el-select v-model="show.type" :placeholder="$t('maintenance type')" @change='search()'>
+									<el-option key='1' :label="$t('all')" value='all'></el-option>
+									<el-option key='2' :label="$t('fault')" value='1'></el-option>
+									<el-option key='3' :label="$t('maintain')" value='2'></el-option>
+									<el-option key='4' :label="$t('check')" value='3'></el-option>
+								</el-select>
+							</el-form-item>
+							<el-form-item>
+								<el-select v-model="show.device_type" :placeholder="$t('device type')" @change='search()'>
+									<el-option key='1' :label="$t('all')" value='all'></el-option>
+									<el-option key='2' :label="$t('door')" value='door'></el-option>
+									<el-option key='3' :label="$t('ctrl')" value='ctrl'></el-option>
+								</el-select>
+							</el-form-item>
+							<el-form-item>
+								<el-input v-model="options.search_info" :data="menu" :placeholder='$t("device name")+"、"+$t("install address")' max=15></el-input>
+							</el-form-item>
+							<el-form-item>
+								<el-button type="primary" icon="el-icon-search" @click='search()'>{{$t('search')}}</el-button>
+								<el-button icon="el-icon-refresh-right" @click='code()'>{{$t('fault code')}}</el-button>
+							</el-form-item>
+						</el-form>
+					</section>
+				</div>
+			</slot>
+		</section>
+		</div>
+	</div>
+</template> -->
 <script>
 	export default {
+		props: {
+		  title: {
+		    type: String,
+		    default: '工单列表'
+		  }
+		},
 		data() {
 			return {
+				icon: require("../../assets/icons/workorder.png"),
 				ctrl: false,
 				door: false,
 				last: true,
@@ -513,4 +569,34 @@
 	.mr-10 {
 		margin-left: 5px;
 	}
+.panel {
+  background: #ffffff;
+  padding: 18px 30px 18px 18px;
+  box-shadow: 0 0 4px rgba(232, 237, 250, .6);
+}
+.panel-title {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 20px;
+  .iconfont {
+    color: #1296db;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 12px;
+  }
+  b {
+	margin-left:12px;
+    font-size: 16px;
+    color: #333333;
+  }
+}
+.panel-content {
+  margin-left: 36px;;
+}
+.pageclass{
+	margin-top:20px; 
+	float: right
+}
 </style>

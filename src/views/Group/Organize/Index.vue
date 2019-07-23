@@ -6,6 +6,8 @@
 					Row(:gutter=5)
 						Col(span="19")
 							Button.mr-10(type="success",icon="md-add",:loading="loading",@click="goOrganize()")|{{$t('New')}} {{$t('Member Group')}}
+							Drawer(title="添加人员组",:closable="false",v-model="value1")
+							
 						Col(span="5")
 							Button.mr-10(type="primary",icon="ios-search",:loading="loading",@click="options.page=1,getOrganize()")
 							Input(v-model="query.number",:placeholder="$t('keyword')" style="width:75%;")
@@ -21,6 +23,7 @@
 	export default {
 		data() {
 			return {
+				value1:false,
 				username:this.global.username,
 				options:{
 					page:1,
@@ -146,9 +149,10 @@
 		},
 		methods:{
 			goOrganize(){
-				this.$router.push({
-					name:'addOrganize',
-				})
+				// this.$router.push({
+				// 	name:'addOrganize',
+				// })
+				this.value1=true;
 			},
 			async Organize(){
 				this.loading = true
